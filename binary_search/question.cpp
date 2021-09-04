@@ -1,65 +1,40 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-#define ll long long
-
-//situ explain;
+// https://www.geeksforgeeks.org/iterators-c-stl/
+#include <bits/stdc++.h>
 
 using namespace std;
 
-void solve()
-{
-    int n, i, j, cnt = 0;
-    cin >> n;
-    int arr[n];
-    for (i = 0; i < n; i++)
-        cin >> arr[i];
-    vector<int> v;
-    for (i = 0; i < n; i++)
-    {
-        if (v.size() == 0)
-        {
+int main(){
+    int n, count = 0; // 
+    cin >> n;       
+    int arr[n]; // 
+    // Input array
+    for(int i = 0; i< n;i++) cin >> arr[i]; 
+
+    // Initialise vector
+    vector<int> v; // 
+
+    for(int i = 0; i < n; i++){
+
+        if(v.size() == 0){
+            count++;
             v.push_back(arr[i]);
-            cnt++;
         }
-        else
-        {
-            int pos = lower_bound(v.begin(), v.end(), arr[i]) - v.begin();
-            if (pos == v.size())
-            {
-                cnt++;
+
+        else{
+            int idx = upper_bound(v.begin(), v.end(), arr[i]) - v.begin();
+
+            // If idx is equal to vector size, new tower needs to be created
+            if(idx == v.size()){
+                count++;
                 v.push_back(arr[i]);
-                continue;
             }
-            else if (v[pos] > arr[i])
-            {
-                v[pos] = arr[i];
-            }
+            
+            // Replace vector element with array element
             else
-            {
-                int pos2 = upper_bound(v.begin() + pos, v.end(), arr[i]) - v.begin();
-                if (pos2 == v.size())
-                {
-                    v.push_back(arr[i]);
-                    cnt++;
-                }
-                else
-                {
-                    v[pos2] = arr[i];
-                }
-            }
+                v[idx] = arr[i];
+        
         }
     }
-    cout << cnt << endl;
+    cout << count << endl;
 }
 
-int main()
-{
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
-}
