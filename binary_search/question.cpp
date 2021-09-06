@@ -4,14 +4,14 @@
 using namespace std;
 
 int main() {
-    int n; //
+    int n; // 5
     cin >> n;
-    int arr[n]; // 
+    int arr[n]; // 3 8 2 1 5 
     // Input array
     for (int i = 0; i < n; i++) cin >> arr[i];
 
     // Initialise vector
-    vector <int> v; //
+    vector <int> v; // 1 5
     v.push_back(arr[0]);       
      
     for (int i = 1; i < n; i++) {
