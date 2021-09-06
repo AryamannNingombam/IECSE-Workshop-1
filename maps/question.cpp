@@ -11,7 +11,7 @@ using namespace std;
 int lengthOfLongestSubstring(string s)
 {
     //using ordered map;
-    unordered_map<int,int>count;
+    unordered_map<char,int>count;
 
     //if there are no elements, then the answer would
     //be zero;

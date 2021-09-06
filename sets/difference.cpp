@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main()
 {
     //ordered set;
@@ -29,6 +30,8 @@ int main()
     s2.insert(2);
     s2.insert(9);
     s2.insert(1);
+    s2.insert(45);
+    s2.insert(455);
 
     //printing the values;
     cout << "\nUNORDERED\n";
